@@ -24,10 +24,23 @@ class App extends Component {
       }
     ]
   };
+
+  // removeContact component needs to live here rather than the ListContacts component because this is where the data is.
+  removeContact = contact => {
+    this.setState(currentState => ({
+      contacts: currentState.contacts.filter(c => {
+        return c.id !== contact.id;
+      })
+    }));
+  };
+
   render() {
     return (
       <div className="App">
-        <ListContacts contacts={this.state.contacts} />
+        <ListContacts
+          contacts={this.state.contacts}
+          onDeleteContact={this.removeContact}
+        />
       </div>
     );
   }
