@@ -9,7 +9,7 @@ class ListContacts extends Component {
   render() {
     return (
       <ol className="contact-list">
-        {props.contacts.map(contact => (
+        {this.props.contacts.map(contact => (
           <li key={contact.id} className="contact-list-item">
             <div
               className="contact-avatar"
@@ -22,7 +22,7 @@ class ListContacts extends Component {
               <p>{contact.handle}</p>
             </div>
             <button
-              onClick={() => props.onDeleteContact(contact)}
+              onClick={() => this.props.onDeleteContact(contact)}
               className="contact-remove"
             >
               Remove
